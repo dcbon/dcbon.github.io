@@ -172,7 +172,7 @@ function updateStat() {
     hunger = 'max';
   }
   if (full >= 100) {
-    deathCause = 'died of embarrasment';
+    deathCause = 'died of obesity';
     isDead();
     full = 'max';
   }
