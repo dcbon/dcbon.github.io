@@ -2,9 +2,10 @@
 phase0 final project
 
 ============
-Jellygotchi!
-============
 
+Jellygotchi!
+
+============
 
 status: completed
 
