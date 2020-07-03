@@ -162,24 +162,24 @@ function updateStat() {
     alert(`${name} is feeling great. Thanks to you!`);
   }
   if (bored >= 100) {
-    bored = 'max';
     deathCause = 'died of boredom';
     isDead();
+    bored = 'max';
   }
   if (hunger >= 100) {
-    hunger = 'max';
     deathCause = 'starve to death';
     isDead();
+    hunger = 'max';
   }
   if (full >= 100) {
-    full = 'max';
     deathCause = 'died of embarrasment';
     isDead();
+    full = 'max';
   }
   if (tired >= 100) {
-    tired = 'max';
     deathCause = 'cursed to sleep forever';
     isDead();
+    tired = 'max';
   }
 
 
