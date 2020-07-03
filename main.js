@@ -78,12 +78,6 @@ function playClicked() {
     bored = 0;
     mood = 'angry';
   } 
-  if (bored >= 100) {
-    bored = 'max';
-    deathCause = 'died of boredom';
-    isDead();
-  }
-
   if (bored >= 85) {
     mood = 'sad';
     alert(`${name} is bored and lonely :(`);
@@ -104,11 +98,6 @@ function feedClicked() {
     hunger = 0;
     mood = 'angry';
   } 
-  if (hunger >= 100) {
-    hunger = 'max';
-    deathCause = 'starve to death';
-    isDead();
-  }
   if (hunger >= 85) {
     mood = 'sad';
     alert(`${name} is reaalllyyyy hunggryyy :(`);
@@ -129,11 +118,6 @@ function pooClicked() {
     full = 0;
     mood = 'sad';
   } 
-  if (full >= 100) {
-    full = 'max';
-    deathCause = 'died of embarrasment';
-    isDead();
-  }
 
   if (full >= 85) {
     mood = 'sad';
@@ -155,11 +139,6 @@ function napClicked() {
     tired = 0;
     mood = 'angry';
   } 
-  if (tired >= 100) {
-    tired = 'max';
-    deathCause = 'cursed to sleep forever';
-    isDead();
-  }
   if (tired >= 85) {
     mood = 'sad';
     alert(`${name} is reaalllyyyy sleepy :(`);
@@ -182,6 +161,27 @@ function updateStat() {
     mood = 'happy';
     alert(`${name} is feeling great. Thanks to you!`);
   }
+  if (bored >= 100) {
+    bored = 'max';
+    deathCause = 'died of boredom';
+    isDead();
+  }
+  if (hunger >= 100) {
+    hunger = 'max';
+    deathCause = 'starve to death';
+    isDead();
+  }
+  if (full >= 100) {
+    full = 'max';
+    deathCause = 'died of embarrasment';
+    isDead();
+  }
+  if (tired >= 100) {
+    tired = 'max';
+    deathCause = 'cursed to sleep forever';
+    isDead();
+  }
+
 
 
   switch (mood) {
