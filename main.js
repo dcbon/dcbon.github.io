@@ -2,16 +2,7 @@
 
 let name = ''
 let deathCause = ''
-let message = `R.I.P ${name} just ${deathCause}. Would you like to restart?`
-
-
-// let red = document.getElementById('red')
-// let yellow = document.getElementById('yellow')
-// let green = document.getElementById('green')
-// let blue = document.getElementById('blue')
-// let purple = document.getElementById('purple')
-// let black = document.getElementById('black')
-
+let mood = ''
 
 let hunger = parseInt(document.getElementById('hungerLevel').innerHTML)
 let full = parseInt(document.getElementById('fullLevel').innerHTML)
@@ -20,12 +11,14 @@ let tired = parseInt(document.getElementById('tiredLevel').innerHTML)
 
 
 function colorPicked() {
+
+  mood = 'smile'
   name = document.getElementById('name').value
   let chooseJelly = document.getElementById('chooseJelly')
   let play = document.getElementById('play')
   let jellyName = document.getElementById('jellyName')
   let jelly = document.getElementById('jelly')
-  let color = document.getElementById('color').value
+  let color = document.getElementById('color')
   
   
   chooseJelly.style.display = 'none'
@@ -39,66 +32,155 @@ function colorPicked() {
   }
   
   
-  let redJelly = '/img/jelly3.png'
-  let yellowJelly = '/img/jelly1.png'
-  let greenJelly = '/img/jelly2.png'
-  let blueJelly = '/img/jelly4.png'
-  let purpleJelly = '/img/jelly5.png'
-  let blackJelly = '/img/jelly6.png'
-
-
-  if (color == red) {
-    jelly.src = redJelly
+  if (color.options[color.selectedIndex] == red) {
+    jelly.src = '/img/Jelly3.png'
     jellyName.style.color = '#ff7d53';
   }
-  if (color == yellow) {
-    jelly.src = yellowJelly
+  if (color.options[color.selectedIndex] == yellow) {
+    jelly.src = '/img/Jelly1.png'
     jellyName.style.color = '#fee75c';
   }
-  if (color == green) {
-    jelly.src = greenJelly
+  if (color.options[color.selectedIndex] == green) {
+    jelly.src = '/img/Jelly2.png'
     jellyName.style.color = '#0b950e';
   }
-  if (color == blue) {
-    jelly.src = blueJelly
+  if (color.options[color.selectedIndex] == blue) {
+    jelly.src = '/img/Jelly4.png'
     jellyName.style.color = '#3693f4';
   }
-  if (color == purple) {
-    jelly.src = purpleJelly
+  if (color.options[color.selectedIndex] == purple) {
+    jelly.src = '/img/Jelly5.png'
     jellyName.style.color = '#cf4ada';
   }
-  if (color == black) {
-    jelly.src = blackJelly
+  if (color.options[color.selectedIndex] == black) {
+    jelly.src = '/img/Jelly6.png'
     jellyName.style.color = '#919191';
   }
-
 }
 
 
 function isDead() {
+
   mood = 'dead'
-  if (confirm(message)) {
+  if (confirm(`R.I.P ${name} just ${deathCause}. Would you like to restart?`)) {
     document.location.reload(true)
   }
 }
 
 
+function playClicked() {
+
+  bored -= 10
+  hunger += 5
+
+  if (bored <= 0) {
+    alert(`${name} isn't bored anymore`)
+    bored = 0
+    mood = 'angry'
+  } else if (bored >= 100) {
+    bored = 'max'
+    deathCause = 'died of boredom'
+    isDead()
+  }
+
+  if (bored >= 85) {
+    mood = 'sad'
+    alert(`${name} is bored and lonely :(`)
+  }
+  
+  updateStat()
+
+}
+
+
+function feedClicked() {
+
+  hunger -= 10
+  full += 5
+
+  if (hunger <= 0) {
+    alert(`${name}'s tummy is already full`)
+    hunger = 0
+    mood = 'angry'
+  } else if (hunger >= 100) {
+    hunger = 'max'
+    deathCause = 'starve to death'
+    isDead()
+  }
+
+  if (hunger >= 85) {
+    mood = 'sad'
+    alert(`${name} is reaalllyyyy hunggryyy :(`)
+  }
+
+  updateStat()
+
+}
+
+
+function pooClicked() {
+
+  full -= 10
+  tired += 5
+  
+  if (full <= 0) {
+    alert(`${name} don't wanna poo :(`)
+    full = 0
+    mood = 'sad'
+  } else if (full >= 100) {
+    full = 'max'
+    deathCause = 'died of embarrasment'
+    isDead()
+  }
+
+  if (full >= 85) {
+    mood = 'sad'
+    alert(`${name} want to poo! :(`)
+  }
+
+  updateStat()
+
+}
+
+
+function napClicked() {
+
+  tired -= 10
+  bored += 5
+  
+  if (tired <= 0) {
+    alert(`${name} is wide awake and full of energy`)
+    tired = 0
+    mood = 'angry'
+  } else if (tired >= 100) {
+    tired = 'max'
+    deathCause = 'cursed to sleep forever'
+    isDead()
+  }
+
+  if (tired >= 85) {
+    mood = 'sad'
+    alert(`${name} is reaalllyyyy sleepy :(`)
+  }
+
+  updateStat()
+
+}
+
+
 function updateStat() {
+
   document.getElementById('boredLevel').innerHTML = bored
   document.getElementById('hungerLevel').innerHTML = hunger
   document.getElementById('fullLevel').innerHTML = full
   document.getElementById('tiredLevel').innerHTML = tired
 
-  let mood = ''
-
-  if (hunger <= 20 && hunger > 0) {
-    mood = 'hungry'
-    alert(`${name} is reaalllyyyy hunggryyy :(`)
-  }
-  if (hunger >= 90 && hunger < 100) {
+  
+  if (hunger <= 15 && bored <= 15 && full <= 15 && tired <= 15) {
     mood = 'happy'
-    alert(`${name} is full and happy :D`)
+    alert(`${name} is feeling great. Thanks to you!`)
   }
+
 
   switch (mood) {
     case 'happy': 
@@ -114,71 +196,11 @@ function updateStat() {
       document.getElementById('face').src = '/img/smile.png'
       break;
     case 'dead': 
-      document.getElementById('face').src = ''
+      document.getElementById('face').src = '/img/dead.png'
       break;
     default:
-      document.getElementById('face').src = '/img/face3.png'
+      document.getElementById('face').src = '/img/Face3.png'
       break;
   }
-}
-
-
-function playClicked() {
-  bored -= 5
-  hunger += 10
-
-  if (bored < 0) {
-    alert(`${name} isn't bored anymore`)
-    bored = 0
-  } else if (bored >100) {
-    deathCause = 'died of boredom'
-    isDead()
-  }
-  updateStat()
-}
-
-
-function feedClicked() {
-  hunger -= 5
-  full += 10
-
-  if (hunger < 0) {
-    deathCause = 'starved to death'
-    isDead()
-  } else if (hunger > 100) {
-    deathCause = 'choke to death'
-    isDead()
-  }
-  updateStat()
-}
-
-
-function pooClicked() {
-  full -= 10
-  tired += 5
-  
-  if (full < 0) {
-    deathCause = 'died.. just because..'
-    isDead()
-  } else if (full > 0) {
-    deathCause = 'died of embarrasment'
-    isDead()
-  }
-  updateStat()
-}
-
-
-function napClicked() {
-  tired -= 10
-  bored += 5
-  
-  if (tired < 0) {
-    deathCause = 'died of heart failure'
-    isDead()
-  } else if (tired > 0) {
-    deathCause = 'cursed to sleep forever'
-    isDead()
-  }
-  updateStat()
 }
 
