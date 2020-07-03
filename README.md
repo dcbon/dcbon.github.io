@@ -1,5 +1,15 @@
 # dcbon.github.io
 phase0 final project
 
+============
+Jellygotchi!
+============
 
-status: on progress
+
+status: completed
+
+
+
+
+
+so that's all
