@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jellygotchi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="box start" id="chooseJelly">
+    <header>
+      <h3>Jellygotchi !</h3>
+    </header>
+    <p>Choose your jelly and click start.</p>
+    <div class="form">
+      <!-- <form action="" method=""> -->
+        <label for="color">Color:</label>
+        <select id="color" name="color">
+        <option id="red" value="red">Red</option>
+        <option id="yellow" value="yellow" selected>Yellow</option>
+        <option id="green" value="green">Green</option>
+        <option id="blue" value="blue">Blue</option>
+        <option id="purple" value="purple">Purple</option>
+        <option id="black" value="black">Black</option>
+      </select><br>
+      <input type="text" name="" id="name" placeholder="Name">
+      <input type="submit" value="Start" id="" class="btn" onclick="colorPicked()">
+      <!-- </form> -->
+    </div>
+  </div>
+  <div class="box" id="play">
+    <header>
+      <h3>Jellygotchi !</h3>
+      <p id="jellyName">- Yaya -</p>
+    </header>
+    <div class="statbar">
+      <div class="bored stat">
+        <p>Boredness:</p>
+        <p id="boredLevel">50</p>
+      </div>
+      <div class="hunger stat">
+        <p>Hunger:</p>
+        <p id="hungerLevel">50</p>
+      </div>
+      <div class="full stat">
+        <p>Fullness:</p>
+        <p id="fullLevel">50</p>
+      </div>
+      <div class="tired stat">
+        <p>Tiredness:</p>
+        <p id="tiredLevel">50</p>
+      </div>
+    </div>
+    <div class="screen">
+      <img src="/img/Jelly1.png" alt="" id="jelly" class="jelly">
+      <img src="/img/happy.png" alt="" id="face" class="face">
+      <img src="/img/Shadow.png" alt="" class="shadow">
+    </div>
+    <div class="controls">
+      <div class="btn" onclick="playClicked()"><p>Play</p></div>
+      <div class="btn" onclick="feedClicked()"><p>Feed</p></div>
+      <div class="btn" onclick="pooClicked()"><p>Poo</p></div>
+      <div class="btn" onclick="napClicked()"><p>Nap</p></div>
+    </div>
+    <footer><p>Made with &#128156; in BGR &#169; 2020 dcbon</p></footer>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

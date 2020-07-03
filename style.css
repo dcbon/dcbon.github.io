@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka One', cursive;
+}
+
+body {
+  background-color: skyblue;
+  margin-top: 50px;
+}
+
+header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+/* index  */
+.start p {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.start .btn {
+  margin: 10px 70px 10px 127px;
+  width: 50%;
+  font-size: 20px;
+}
+
+.form {
+  text-align: center;
+}
+
+#name {
+  margin: 10px 70px 10px 80px;
+  width: 50%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+/* game  */
+#play {
+  display: none;
+}
+
+.statbar {
+  margin: 10px 15px;
+}
+
+.stat {
+  float: left;
+  width: 25%;
+  padding: 5px 10px;
+}
+
+.box {
+  border: 5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: auto;
+  height: 500px;
+  width: 500px;
+  background-color: gray;
+  background-image: url(/img/BG.png);
+}
+
+.screen {
+  border-radius: 15px 15px 0 0;
+  margin: auto;
+  height: 300px;
+  width: 100%;
+}
+
+.controls {
+  padding: 0 15px;
+}
+
+.btn {
+  float: left;
+  width: 25%;
+  padding: 15px 20px;
+  color: black;
+  background-color: gold;
+  border: 2px solid rgb(252, 226, 78);
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn:hover {
+  background-color: #ffd700;
+  box-shadow: 0 7px #b29600;
+  color: black;
+}
+
+.btn p {
+  margin: auto;
+  text-align: center;
+}
+
+.btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+.jelly {
+  position: relative;
+  width: 150px;
+  left: 170px;
+  top: 50px;
+  z-index: 1;
+}
+
+.face {
+  position: relative;
+  width: 150px;
+  top: 40px;
+  left: 15px;
+  z-index: 10;
+}
+
+.shadow {
+  width: 180px;
+  position: relative;
+  top: 80px;
+  right: 155px;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+}
