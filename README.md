@@ -15,3 +15,7 @@ had so much fun doing this mini project
 
 img from https://www.gameart2d.com/jelly-squash-free-sprites.html
 plus some that I modified with Adobe Illustrator
+
+
+Music: “Pet’s Life”, from PlayOnLoop.com
+Licensed under Creative Commons by Attribution 4.0
