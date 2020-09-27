@@ -83,6 +83,7 @@ header {
   padding: 15px 20px;
   color: black;
   background-color: gold;
+  box-shadow: 0 7px #b29600;
   border: 2px solid rgb(252, 226, 78);
   border-radius: 20px;
   cursor: pointer;
@@ -91,7 +92,6 @@ header {
 
 .btn:hover {
   background-color: #ffd700;
-  box-shadow: 0 7px #b29600;
   color: black;
 }
 
